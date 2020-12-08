@@ -16,16 +16,16 @@ class Recommender():
 	def recommend(self,data):
 		X_pred = []
 		recommender = load_model("Model.h5")
-		for val in list(data.values())[:-1]:
+		for val in list(data.values())[:-2]:
 			try:
 				x = int(val)
 			except:
 				x=val
 			X_pred.append(x)
+		print(X_pred)
 		os=X_pred.pop(1)
 		X_pred = np.array(X_pred)
 		budget = X_pred[0]
-		print(X_pred.shape)
 		X_pred = (X_pred - self.X_mean)//self.X_std
 		newX = X_pred
 		print(newX.shape)

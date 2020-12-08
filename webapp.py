@@ -10,12 +10,12 @@ app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 @app.route("/home",methods = ['GET', 'POST'])
 def home():
 	form = UserInput()
-	if request.method == 'POST':
+	if form.validate_on_submit():
+		flash('Data taken successfully','success')
 		data = request.form
 		r = Recommender()
 		global search
 		results,search = r.recommend(data)
-		print(results)
 		return render_template('results.html',results=results)
 	return render_template('home.html',form=form)
 
