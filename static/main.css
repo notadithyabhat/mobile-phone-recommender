@@ -115,3 +115,8 @@ a.article-title:hover {
  .page-footer {
   background-color: #ff2400;
  }
+ .btn:hover {
+  color: #ff2400;
+  background-color: #ff2400;
+
+ }
