@@ -27,8 +27,7 @@ def about():
 def results(index=None):
 	link = request.args.get('url')
 	update(index,search)
-	webbrowser.open_new_tab(link)
-	return redirect(url_for('home'))
+	return redirect(link)
 
 if __name__=='__main__':
 	app.run(debug=True)
