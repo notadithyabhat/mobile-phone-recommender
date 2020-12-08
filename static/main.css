@@ -126,6 +126,7 @@ a.article-title:hover {
  .btn {
   color: #ff2400;
   border-color: #ff2400;
+  background-color: white;
  }
 
  .authors {

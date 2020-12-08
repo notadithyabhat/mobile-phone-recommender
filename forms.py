@@ -16,3 +16,7 @@ class UserInput(FlaskForm):
 	p5 = RadioField('Enter Your 5th Priority', choices = [(1, 'Browsing Social Media'), (2, 'Watching Videos or Movies')
 						,(3, 'Taking Photos And Videos'),(4,'Taking Selfies'),(5,'Gaming'),(6,'Multitasking')],validators=[DataRequired()])
 	submit = SubmitField("Submit")
+
+
+
+
