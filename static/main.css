@@ -121,6 +121,7 @@ a.article-title:hover {
  .btn:hover {
   color: white;
   background-color: #ff2400;
+  box-shadow: none;
 
  }
 
