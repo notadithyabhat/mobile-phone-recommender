@@ -61,12 +61,12 @@ class Recommender():
 				priority,lr = pickle.load(f)
 		except:
 			priority = {}
-			lr=1
+			lr=0.34
 
 		search = ",".join([str(each) for each in X_pred])
 		if search not in priority:
 			priority[search] = [5,4,3,2,1]
-			lr=1
+			lr=0.34
 
 		show_list = list(choices.keys())[:MAXSIZE]
 
