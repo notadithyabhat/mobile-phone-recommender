@@ -44,6 +44,8 @@ a.article-title:hover {
 .article-content {
   white-space: pre-line;
   padding-top: 20px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .article-img {
@@ -115,8 +117,14 @@ a.article-title:hover {
  .page-footer {
   background-color: #ff2400;
  }
+
  .btn:hover {
-  color: #ff2400;
+  color: white;
   background-color: #ff2400;
 
+ }
+
+ .btn {
+  color: #ff2400;
+  border-color: #ff2400;
  }

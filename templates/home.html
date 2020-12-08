@@ -4,7 +4,7 @@
       <div class="media-body">
         <h1><a class="article-title" href="#">Mobile Phone Recommender</a></h1>
         <p class="article-content">Welcome to the Mobile Phone Recommender!</p>
-        <p class="article-content">Mobile Phone Recommender is an AI powered web-application developed based on Python Flask and Tensorflow frameworks to recommend the most suitable smart phone for a person to suit their practical needs based on user information that minimal technicality.<br>Please enter your budget (a minimum of 7500), preference of your operating system and your top 5 use cases that you wish to use your new mobile phone for and we will recommend the most suitable one for you.</p>
+        <p class="article-content">Mobile Phone Recommender is an AI powered web-application developed based on Python Flask and Tensorflow frameworks to recommend the most suitable smart phone for a person to suit their practical needs based on user information that minimal technicality.<br><br>Please enter your budget (a minimum of 7500), preference of your operating system and your top 5 use cases that you wish to use your new mobile phone for and we will recommend the most suitable one for you.</p>
       <form method = "POST" action="/">
         <fieldset class="form-group">
           <legend class="border-bottom mb-4">Enter the Details</legend>
@@ -37,14 +37,14 @@
           <div class="form-group">
             {{ form.p1.label(class="form-control-label") }}
                 {% if form.p1.errors %}
-                    {{ form.p1(class="form-control form-control-lg is-invalid") }}
+                    {{ form.p1(class="form-control radio form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.p1.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.p1(class="form-control form-control-lg") }}
+                    {{ form.p1(class="form-control radio form-control-lg") }}
                 {% endif %}
           </div>
           <div class="form-group">
@@ -57,20 +57,20 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.p2(class="form-control form-control-lg") }}
+                    {{ form.p2(class="form-control radio form-control-lg") }}
                 {% endif %}
           </div>
           <div class="form-group">
             {{ form.p3.label(class="form-control-label") }}
                 {% if form.p3.errors %}
-                    {{ form.p3(class="form-control form-control-lg is-invalid") }}
+                    {{ form.p3(class="form-control radio form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
                         {% for error in form.p3.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.p3(class="form-control form-control-lg") }}
+                    {{ form.p3(class="form-control radio form-control-lg") }}
                 {% endif %}
           </div>
           <div class="form-group">
@@ -83,7 +83,7 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.p4(class="form-control form-control-lg") }}
+                    {{ form.p4(class="form-control radio form-control-lg") }}
                 {% endif %}
           </div>
           <div class="form-group">
@@ -96,7 +96,7 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.p5(class="form-control form-control-lg") }}
+                    {{ form.p5(class="form-control radio form-control-lg") }}
                 {% endif %}
           </div>
           
