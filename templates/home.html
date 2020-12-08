@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+        <h1><a class="article-title" href="#">Mobile Phone Recommender</a></h1>
+        <p class="article-content">Welcome to the Mobile Phone Recommender.<br> Please enter your budget, preferences and your top 5 use cases for your new mobile phone and we will recommend the most suitable one for you.</p>
+      <form method = "POST" action="/">
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Enter the Details</legend>
+          <div class="form-group">
+            {{ form.budget.label(class="form-control-label") }}
+                {% if form.budget.errors %}
+                    {{ form.budget(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.budget.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.budget(class="form-control form-control-lg") }}
+                {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.os.label(class="form-control-label") }}
+                {% if form.os.errors %}
+                    {{ form.os(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.os.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.os(class="form-control form-control-lg") }}
+                {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.p1.label(class="form-control-label") }}
+                {% if form.p1.errors %}
+                    {{ form.p1(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.p1.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.p1(class="form-control form-control-lg") }}
+                {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.p2.label(class="form-control-label") }}
+                {% if form.p2.errors %}
+                    {{ form.p2(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.p2.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.p2(class="form-control form-control-lg") }}
+                {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.p3.label(class="form-control-label") }}
+                {% if form.p3.errors %}
+                    {{ form.p3(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.p3.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.p3(class="form-control form-control-lg") }}
+                {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.p4.label(class="form-control-label") }}
+                {% if form.p4.errors %}
+                    {{ form.p4(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.p4.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.p4(class="form-control form-control-lg") }}
+                {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.p5.label(class="form-control-label") }}
+                {% if form.p5.errors %}
+                    {{ form.p5(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.p5.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.p5(class="form-control form-control-lg") }}
+                {% endif %}
+          </div>
+          
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+      </form>
+    </div>
+    </article>
+{% endblock content %}

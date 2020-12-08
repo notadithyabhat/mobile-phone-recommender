@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+    <article class="media content-section">
+      <div class="media-body">
+        <h1><a class="article-title" href="#">Recommendations</a></h1>
+        <p class="article-content">Your recommended phone should have the following specifications:</p>
+        <div class="form-group">
+        <ul >
+        	<li><b>Processor: </b>{{ results[0].pro }}</li>
+        	<li><b>RAM: </b>{{ results[0].ram }}GB</li>
+        	<li><b>Back Camera Score: </b>{{ results[0].bc }}</li>
+        	<li><b>Front Camera Score: </b>{{ results[0].fc }}</li>
+        	<li><b>Resolution: </b>{{ results[0].res }}p</li>
+        	<li><b>Battery: </b>{{ results[0].btr }}mAH</li>
+        </ul>
+        <br>
+        <h2>Recommended Phones</h2>
+        <legend class="border-bottom mb-4"></legend>
+        <ol class="list-group phone-list">
+        {% for result in results[1:] %}
+	        	<li class="list-group-item phone"><ul>
+			    	<h3><a class="article-title" href="results/{{ result.idx }}/{{ result.link }}">{{ result.Mobile }}</a></h3><br>
+			    	Specifications:
+			    	<div class="specs">
+			    	<li><b>Processor: </b>{{ result.pro }}</li>
+			    	<li><b>RAM: </b>{{ result.ram }}GB</li>
+			    	<li><b>Back Camera Score: </b>{{ result.bc }}</li>
+			    	<li><b>Front Camera Score: </b>{{ result.fc }}</li>
+			    	<li><b>Resolution: </b>{{ result.res }}p</li>
+			    	<li><b>Battery: </b>{{ result.btr }}mAH</li>
+			    	</div>
+			    </ul></li>
+        {% endfor %}
+        </ol>
+      </div>
+    </article>
+{% endblock content %}
