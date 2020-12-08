@@ -19,7 +19,7 @@
         <ol class="list-group phone-list">
         {% for result in results[1:] %}
 	        	<li class="list-group-item phone"><ul>
-			    	<h3><a class="article-title" href="results/{{ result.idx }}/{{ result.link }}">{{ result.Mobile }}</a></h3><br>
+			    	<h3><a class="article-title" href="/results/{{ result.idx }}/?url={{ result.link }}">{{ result.Mobile }}</a></h3><br>
 			    	Specifications:
 			    	<div class="specs">
 			    	<li><b>Processor: </b>{{ result.pro }}</li>

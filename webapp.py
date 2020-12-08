@@ -13,7 +13,8 @@ def home():
 	if request.method == 'POST':
 		data = request.form
 		r = Recommender()
-		results = r.recommend(data)
+		global search
+		results,search = r.recommend(data)
 		print(results)
 		return render_template('results.html',results=results)
 	return render_template('home.html',form=form)
@@ -22,11 +23,12 @@ def home():
 def about():
 	return render_template('about.html')	
 
-@app.route("/results/<index>/<link>")
-def results(index=None,link=None):
-	update(index)
-	print("ENTER\n\n\n\n\n\n\n\n\n\n\n\n")
-	return webbrowser.open_new_tab(link)
+@app.route("/results/<int:index>/", methods = ['GET'])
+def results(index=None):
+	link = request.args.get('url')
+	update(index,search)
+	webbrowser.open_new_tab(link)
+	return redirect(url_for('home'))
 
 if __name__=='__main__':
 	app.run(debug=True)

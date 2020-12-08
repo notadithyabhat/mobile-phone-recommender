@@ -66,6 +66,7 @@ class Recommender():
 		search = ",".join([str(each) for each in X_pred])
 		if search not in priority:
 			priority[search] = [5,4,3,2,1]
+			lr=1
 
 		show_list = list(choices.keys())[:MAXSIZE]
 
@@ -82,14 +83,17 @@ class Recommender():
 		'''choice=int(input("Your choice? (1/2/3/4/5)"))
 		print(priority[search])
 		priority[search][choice-1]+=self.lr'''
-		return self.results
+		with open("priority.pkl",'wb') as f:
+			pickle.dump([priority,lr],f,pickle.HIGHEST_PROTOCOL)
+		return self.results,search
 
 
-def update(choice):
-	lr = database()
+def update(choice,search):
+	lr = int(choice)
 	with open("priority.pkl",'rb') as f:
 				priority,lr = pickle.load(f)
-	print(lr)
+	print("Search is:",search)
+	print("LR is:",lr)
 	priority[search][choice-1]+=lr
 	with open("priority.pkl",'wb') as f:
 			pickle.dump([priority,lr],f,pickle.HIGHEST_PROTOCOL)
