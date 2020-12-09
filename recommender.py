@@ -22,13 +22,12 @@ class Recommender():
 			except:
 				x=val
 			X_pred.append(x)
-		print(X_pred)
 		os=X_pred.pop(1)
 		X_pred = np.array(X_pred)
 		budget = X_pred[0]
+		search = ",".join([str(each) for each in X_pred])
 		X_pred = (X_pred - self.X_mean)//self.X_std
 		newX = X_pred
-		print(newX.shape)
 		y_pred = recommender.predict(newX)
 		ans = y_pred[0]
 		for i in range(len(ans)):
@@ -63,7 +62,7 @@ class Recommender():
 			priority = {}
 			lr=0.34
 
-		search = ",".join([str(each) for each in X_pred])
+
 		if search not in priority:
 			priority[search] = [5,4,3,2,1]
 			lr=0.34
@@ -80,20 +79,16 @@ class Recommender():
 			m_processor, m_ram, m_bcam, m_fcam, m_screen, m_battery = db["Processor"][mobile], db["Ram"][mobile], db["Back Camera"][mobile], db["Front Camera"][mobile], db["Screen"][mobile], db["Battery"][mobile]
 			self.results.append({"Mobile":f"{mobiles[mobile][0]} {mobiles[mobile][1]}",'pro':m_processor,'ram':m_ram,'bc':m_bcam,'fc':m_fcam,'res':m_screen,'btr':m_battery,'link':f'https://www.amazon.in/s?k={mobiles[mobile][0]}+{"+".join(mobiles[mobile][1].split(" "))}+8&ref=nb_sb_noss_2','idx':i+1})
 
-		'''choice=int(input("Your choice? (1/2/3/4/5)"))
-		print(priority[search])
-		priority[search][choice-1]+=self.lr'''
 		with open("priority.pkl",'wb') as f:
 			pickle.dump([priority,lr],f,pickle.HIGHEST_PROTOCOL)
 		return self.results,search
 
 
 def update(choice,search):
-	lr = int(choice)
+	lr = 0.34
 	with open("priority.pkl",'rb') as f:
 				priority,lr = pickle.load(f)
-	print("Search is:",search)
-	print("LR is:",lr)
+
 	priority[search][choice-1]+=lr
 	with open("priority.pkl",'wb') as f:
 			pickle.dump([priority,lr],f,pickle.HIGHEST_PROTOCOL)

@@ -25,9 +25,9 @@ def about():
 
 @app.route("/results/<int:index>/", methods = ['GET'])
 def results(index=None):
-	link = request.args.get('url')
+	url = request.args.get('url')
 	update(index,search)
-	return redirect(link)
+	return redirect(url)
 
 if __name__=='__main__':
 	app.run(debug=True)
